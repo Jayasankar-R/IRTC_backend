@@ -1,1 +1,39 @@
 # IRTC_backend
+LLD:=
+Entities-
+User
+  String name,
+  String hashpassword,
+  List<TIcket> bookedticket,
+  String userId
+  
+Ticket
+  String ticketId,
+  String userId,
+  String Source,
+  String Destination,
+  DateTime datetime,
+  Train
+
+Train
+  String trainId,
+  String trainNo,
+  DateTime departureTime,
+  DateTime arraivalTime,
+  List<List<boolean>> seats
+
+Service-
+UserBookingService
+  Login(User user)
+  SigUp(User user)
+  fetchTicets()
+  Cancel()
+  BookTicket()
+
+TrainService
+  SearchTrain(String a,String b)
+  GetSeatsAvailable(Train train)
+  
+  
+  
+  
