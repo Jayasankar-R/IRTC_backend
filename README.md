@@ -22,6 +22,7 @@ Train
   DateTime arraivalTime,
   List<List<boolean>> seats
   Map<Sting,Time>stationTimes
+  List<String> stations
 
 Service-
 UserBookingService
