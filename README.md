@@ -12,7 +12,7 @@ Ticket
   String userId,
   String Source,
   String Destination,
-  DateTime datetime,
+  Date dateOfTravel,
   Train
 
 Train
