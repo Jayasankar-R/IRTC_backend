@@ -21,6 +21,7 @@ Train
   DateTime departureTime,
   DateTime arraivalTime,
   List<List<boolean>> seats
+  Map<Sting,Time>stationTimes
 
 Service-
 UserBookingService
