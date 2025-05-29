@@ -1,0 +1,43 @@
+[{
+  "trainId": "TRN001",
+  "trainNo": "12695",
+  "seats": [
+    [0, 1, 0, 1],
+    [1, 1, 0, 0],
+    [0, 0, 1, 1]
+  ],
+  "stationTime": {
+    "Ernakulam": "08:30:00",
+    "Thrissur": "10:00:00",
+    "Palakkad": "12:00:00",
+    "Chennai": "20:45:00"
+  },
+  "stations": [
+    "Ernakulam",
+    "Thrissur",
+    "Palakkad",
+    "Chennai"
+  ]
+},
+
+{
+"trainId": "TRN002",
+"trainNo": "56789",
+"seats": [
+[0, 0, 0],
+[1, 0, 1],
+[0, 1, 0]
+],
+"stationTime": {
+"Aluva": "06:15:00",
+"Angamaly": "06:30:00",
+"Chalakudy": "07:00:00",
+"Thrissur": "07:30:00"
+},
+"stations": [
+"Aluva",
+"Angamaly",
+"Chalakudy",
+"Thrissur"
+]
+}]
