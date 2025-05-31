@@ -23,6 +23,7 @@ public class App {
             userService = new UserService();
         }catch(IOException ex){
             System.out.println("There is something wrong");
+            ex.printStackTrace();
             return;
         }
         Train trainSelectedForBooking = new Train();
@@ -45,6 +46,7 @@ public class App {
                     String passwordToSignUp = scanner.next();
                     User userToSignup = new User(nameToSignUp, passwordToSignUp, UserserviceUtil.hashPassword(passwordToSignUp), new ArrayList<>(), UUID.randomUUID().toString());
                     userService.signUp(userToSignup);
+                    System.out.println(userToSignup.getHashpassword());
                     break;
                 case 2:
                     System.out.println("Enter the username to Login");
@@ -77,9 +79,14 @@ public class App {
                         }
                     }
                     System.out.println("Select a train by typing 1,2,3...");
-                    trainSelectedForBooking = trains.get(scanner.nextInt());
+                    int choice = scanner.nextInt();
+                    trainSelectedForBooking = trains.get(choice-1);
                     break;
                 case 5:
+                    if (trainSelectedForBooking == null || trainSelectedForBooking.getSeats() == null) {
+                        System.out.println("No train selected or no seats available. Please search and select a train first.");
+                        break;
+                    }
                     System.out.println("Select a seat out of these seats");
                     List<List<Integer>> seats = userService.fetchSeats(trainSelectedForBooking);
                     for (List<Integer> row: seats){

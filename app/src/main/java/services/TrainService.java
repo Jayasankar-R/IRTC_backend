@@ -16,7 +16,7 @@ import java.util.stream.IntStream;
 public class TrainService {
     private List<Train> trainList;
     private ObjectMapper objectMapper=new ObjectMapper();
-    private static final String TRAIN_PATH="../localDb/trains.json";
+    private static final String TRAIN_PATH="app/src/main/java/localDb/trains.json";
 
     public TrainService() throws IOException {
         File trains= new File(TRAIN_PATH);
@@ -31,8 +31,8 @@ public class TrainService {
     public boolean validTrain(Train train,String source,String destination){
         List<String> stationOrder =train.getStations();
 
-        int sourceindex= stationOrder.indexOf(source.toLowerCase());
-        int destinationindex=stationOrder.indexOf(destination.toLowerCase());
+        int sourceindex= stationOrder.indexOf(source);
+        int destinationindex=stationOrder.indexOf(destination);
 
         return sourceindex != -1 && destinationindex !=-1 && sourceindex < destinationindex;
     }

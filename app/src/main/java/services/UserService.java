@@ -16,9 +16,9 @@ public class UserService {
 
     private User user;
 
-    private List<User> userList;
+    private final List<User> userList;
 
-    private ObjectMapper objectMapper=new ObjectMapper();
+    private final ObjectMapper objectMapper=new ObjectMapper();
 
     private static final String USER_PATH="app/src/main/java/localDb/user.json";
 
@@ -35,7 +35,7 @@ public class UserService {
 
     }
     public UserService() throws IOException {
-        loadUser();
+       this.userList= loadUser();
     }
     public List<User> loadUser() throws  IOException{
         File users= new File(USER_PATH);
@@ -67,6 +67,7 @@ public class UserService {
 
     public void fetchBookings(){
         Optional<User> fetchBookings= userList.stream().filter(user1 -> {
+            System.out.println(user1.getHashpassword());
             return user1.getName().equals(user.getName()) && UserserviceUtil.checkPassword(user.getPassword(),user1.getHashpassword());
         }).findFirst();
         fetchBookings.ifPresent(User::printTickets);
